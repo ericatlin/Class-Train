@@ -11,26 +11,10 @@ namespace Class_Train_2_test
         static void Main(string[] args)
         {
             Console.WriteLine("請輸入以逗號分隔的整數");
-            List<int> list = new List<int>();
-            
             string[] allNum = Console.ReadLine().Split(',');
-            foreach (string str in allNum)
-            {
-                list.Add(int.Parse(str));
-            }
-            var odd = list.Where(x=> x%2 ==0);
-            var even = list.Where(x => x % 2 != 0);
-            Console.WriteLine("奇數:");
-            foreach (var item in odd)
-            {
-                Console.Write(item + ",");
-            }
-            Console.WriteLine("\n偶數:");
-            foreach (var item in even)
-            {
-                Console.Write(item + ",");
-            }
-            Console.Read();
+            Console.WriteLine($"奇數:{string.Join(",", allNum.Where(x => int.Parse(x) % 2 == 0))}");
+            Console.WriteLine($"偶數:{string.Join(",", allNum.Where(x => int.Parse(x) % 2 != 0))}");
+            Console.ReadLine();
         }
     }
 }
